@@ -4,11 +4,11 @@ export let store = {
     state: {
         homePage: {
             notes: [
-                { title: "name1", id:1},
-                { title: 'name2', id:2 },
-                { title: 'name3', id:3 },
-                { title: 'name4', id:4 },
-                { title: 'name5', id:5 }
+                { title: "name1", id:4},
+                { title: 'name2', id:3 },
+                { title: 'name3', id:2 },
+                { title: 'name4', id:1 },
+                { title: 'name5', id:0 }
             ],
             newNoteText: "Enter here your note text",
         },
@@ -32,8 +32,10 @@ export let store = {
 }
 
  export let addNote = (noteText) => {
+    let id = store.state.homePage.notes[0].id
     let newNote = {
-        title: noteText
+        title: noteText,
+        id: ++id
     }
     store.state.homePage.notes.unshift(newNote)
     rerenderTree()
@@ -42,6 +44,17 @@ export let store = {
 export let newNote = (noteText) => {
     store.state.homePage.newNoteText = noteText
     rerenderTree()
+}
+
+export let deleteNote = (noteId) => {
+    
+    for (let i = 0; i <=store.state.homePage.notes.length; i++) {
+        if (store.state.homePage.notes[i].id == noteId) {
+            store.state.homePage.notes.splice(i, 1)
+            rerenderTree()
+        }
+    }
+
 }
 
 window.store = store;

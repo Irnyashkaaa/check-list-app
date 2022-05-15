@@ -7,7 +7,7 @@ const HomePage = (props) => {
     return (
         <div>
             <Form store={props.store} addNote={props.addNote} newNote={props.newNote}/>
-            <Notes store={props.store} addNote={addNote}/>
+            <Notes store={props.store} addNote={addNote} deleteNote={props.deleteNote}/>
         </div>
     )
 }
