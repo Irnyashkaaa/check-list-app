@@ -32,7 +32,12 @@ export let store = {
 }
 
  export let addNote = (noteText) => {
-    let id = store.state.homePage.notes[0].id
+    let id
+    if (store.state.homePage.notes.length > 0) {
+        id = store.state.homePage.notes[0].id
+    } else {
+        id = 0
+    }
     let newNote = {
         title: noteText,
         id: ++id
@@ -47,7 +52,10 @@ export let newNote = (noteText) => {
 }
 
 export let deleteNote = (noteId) => {
-    
+    if (!noteId) {
+        noteId = 0
+    }
+
     for (let i = 0; i <=store.state.homePage.notes.length; i++) {
         if (store.state.homePage.notes[i].id == noteId) {
             store.state.homePage.notes.splice(i, 1)
