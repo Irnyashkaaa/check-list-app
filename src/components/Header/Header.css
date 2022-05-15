@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    background-color: black;
+    color: aquamarine;
+    font-size: 30px;
+    justify-content: space-between;
+}
+
+.headerTitle {
+
+}
+
+.headerLinks {
+    display: flex;
+}
+
+.headerLink {
+    margin: 0px 10px;
+    color: aliceblue;
+}

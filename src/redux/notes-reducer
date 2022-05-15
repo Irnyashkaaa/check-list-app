@@ -1,0 +1,47 @@
+let ADD_POST = 'ADD-POST';
+let NEW_POST = 'NEW-POST';
+let SET_USER_PROFILE = 'SET-USER-PRODILE'
+
+export const addNoteActionCreator = () => ({ type: "ADD-POST" });
+export const newNoteActionCreator = (text) => ({ type: "NEW-POST", newText: text })
+
+
+let initState = {
+    homePage: {
+        notes: [
+            { title: "name1", id:1},
+            { title: 'name2', id:2 },
+            { title: 'name3', id:3 },
+            { title: 'name4', id:4 },
+            { title: 'name5', id:5 }
+        ],
+        newNoteText: "New text",
+    },
+    newNoteText: 'new text'
+    profile: null
+}
+export const ProfileReducer = (state = initState, action) => {
+    switch (action.type) {
+        case ADD_POST: {
+            return {
+                ...state,
+                postsData: [{name: "name6", message: state.newPostText, likesCount: 0}, ...state.postsData, ],
+                newPostText: ""
+            }
+        }
+        case NEW_POST: {
+            return {
+                ...state,
+                newPostText: action.newText
+            }
+        }
+        case SET_USER_PROFILE: {
+            return {
+                ...state,
+                profile: action.profile
+            }
+        }
+        default:
+            return state;
+    }
+}

@@ -1,0 +1,16 @@
+.form {
+    width: 100%;
+    font-size: 24px;
+    margin: 10px 0px;
+    display: flex;
+}
+.formButton {
+    margin: 10px 0px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 0px 5px 5px 0px;
+}
+.formButton:hover {
+    background-color: black;
+    color: white;
+}

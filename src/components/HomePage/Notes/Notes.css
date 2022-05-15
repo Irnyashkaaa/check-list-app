@@ -1,0 +1,22 @@
+.note {
+    list-style: none;
+    border: 2px solid black;
+    margin: 5px 0px;
+    color: black;
+    font-size: 20px;
+    padding: 10px 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.noteButton {
+    border: 2px solid red;
+    border-radius: 5px;
+    background-color: transparent;
+    color: red;
+}
+
+.noteButton:hover {
+    background-color: red;
+    color: white;
+}
