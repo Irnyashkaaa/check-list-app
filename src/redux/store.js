@@ -1,68 +1,35 @@
 import { rerenderTree } from ".."
+import { formReducer } from "./form-reducer"
+import { notesReducer } from "./notes-reducer"
+
+
 
 export let store = {
     state: {
         homePage: {
             notes: [
-                { title: "name1", id:4},
-                { title: 'name2', id:3 },
-                { title: 'name3', id:2 },
-                { title: 'name4', id:1 },
-                { title: 'name5', id:0 }
+                { title: "name1", id: 4 },
+                { title: 'name2', id: 3 },
+                { title: 'name3', id: 2 },
+                { title: 'name4', id: 1 },
+                { title: 'name5', id: 0 }
             ],
-            newNoteText: "Enter here your note text",
+            newNoteText: "",
         },
     },
     getState() {
         return this._state
     },
-    _rerenderDomTree() {
-        console.log("state changed")
-    },
-    subscribe(observer) {
-        this._rerenderDomTree = observer
-    },
 
-    // dispatch(action) {
-    //     this._state.profilePage = (ProfileReducer(this._state.profilePage, action))
-    //     this._state.dispatch = (DialogsReducer(this._state.dialogs, action))
-    //     this._rerenderDomTree(this._state)
-    // },
-
-}
-
- export let addNote = (noteText) => {
-    let id
-    if (store.state.homePage.notes.length > 0) {
-        id = store.state.homePage.notes[0].id
-    } else {
-        id = 0
-    }
-    let newNote = {
-        title: noteText,
-        id: ++id
-    }
-    store.state.homePage.notes.unshift(newNote)
-    rerenderTree()
-}
-
-export let newNote = (noteText) => {
-    store.state.homePage.newNoteText = noteText
-    rerenderTree()
-}
-
-export let deleteNote = (noteId) => {
-    if (!noteId) {
-        noteId = 0
-    }
-
-    for (let i = 0; i <=store.state.homePage.notes.length; i++) {
-        if (store.state.homePage.notes[i].id == noteId) {
-            store.state.homePage.notes.splice(i, 1)
-            rerenderTree()
-        }
+    dispatch(action) {
+        this.store.state.homePage = formReducer(this.store.state.homePage, action)
+        this.store.state.homePage.notes = notesReducer(this.store.state.homePage.notes, action)
+        rerenderTree()
     }
 
 }
+
+
+
 
 window.store = store;

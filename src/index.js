@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import {App} from './App';
 import reportWebVitals from './reportWebVitals';
-import { addNote, deleteNote, newNote, store } from './redux/store';
+import { store } from './redux/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,7 +11,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 export let rerenderTree = () => {
   root.render(
     <React.StrictMode>
-      <App store={store} addNote={addNote} newNote={newNote} deleteNote={deleteNote}/>
+      <App store={store} 
+      dispatch={store.dispatch}/>
     </React.StrictMode>
   );
 }

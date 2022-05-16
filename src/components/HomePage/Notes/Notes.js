@@ -1,12 +1,13 @@
 import React from "react";
+import { deleteNoteActionCreatore } from "../../../redux/notes-reducer";
 import './Notes.css'
 
 
 
-const Notes = (props) => {
+export const Notes = (props) => {
 
     let deleteNote = (noteId) => {
-        props.deleteNote(noteId)
+        props.dispatch(deleteNoteActionCreatore(noteId))
     }
 
     return (
@@ -19,5 +20,3 @@ const Notes = (props) => {
         </div>
     )
 }
-
-export default Notes
