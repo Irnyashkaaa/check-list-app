@@ -1,17 +1,25 @@
-export let deleteNoteActionCreatore = (noteId) => ({ type: 'DELETE-NOTE', noteId: noteId })
+export const deleteNoteActionCreatore = (deleteNoteId) => ({ type: 'DELETE-NOTE', deleteNoteId: deleteNoteId })
+export const newNoteActionCreatore = (noteText) => ({ type: 'NEW-NOTE', noteText: noteText })
+export const addNoteActionCreatore = (noteText, lastId) => ({ type: 'ADD-NOTE', noteText: noteText, lastId: lastId })
+
 
 export let notesReducer = (state, action) => {
-    switch(action.type) {
+    switch (action.type) {
+
         case 'DELETE-NOTE':
-                if (!action.noteId) {
-                    action.noteId = 0
+            state.notes.splice(action.deleteNoteId, 1)
+            return state
+        case 'ADD-NOTE':
+                let newNote = {
+                    title: action.noteText,
+                    id: ++action.lastId
                 }
-                for (let i = 0; i <= state.length; i++) {
-                    if (state[i].id == action.noteId) {
-                        state.splice(i, 1)
-                        return state
-                    }
-                }
+                state.newNoteText = ''
+                state.notes.unshift(newNote)
+
+                return state
+        case 'NEW-NOTE':
+            state.newNoteText = action.noteText
         default: return state
     }
 }

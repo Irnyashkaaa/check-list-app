@@ -7,13 +7,14 @@ import {HomePage} from './components/HomePage/HomePage'
 
 
 export const App = (props) => {
+
   return (
     <BrowserRouter>
       <div className='container'>
         <Header />
         <Routes>
           <Route path='/' element={<HomePage 
-          store={props.store} 
+          state={props.state} 
           dispatch={props.dispatch}/>} />
         </Routes>
       </div>

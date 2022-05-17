@@ -5,8 +5,8 @@ import {Notes} from "./Notes/Notes";
 export const HomePage = (props) => {
     return (
         <div>
-            <Form store={props.store} dispatch={props.dispatch}/>
-            <Notes store={props.store} dispatch={props.dispatch}/>
+            <Form state={props.state} dispatch={props.dispatch}/>
+            <Notes state={props.state} dispatch={props.dispatch}/>
         </div>
     )
 }

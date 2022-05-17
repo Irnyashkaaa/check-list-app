@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {App} from './App';
 import reportWebVitals from './reportWebVitals';
-import { store } from './redux/store';
+import  {store}  from './redux/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 export let rerenderTree = () => {
+  console.log(store);
   root.render(
     <React.StrictMode>
-      <App store={store} 
+      <App state={store.getState()}
       dispatch={store.dispatch}/>
     </React.StrictMode>
   );
