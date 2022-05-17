@@ -15,12 +15,20 @@ export const Notes = (props) => {
         }
 
     }
-
     return (
         <div >
             {props.state.homePage.notes.map(note => {
-                return <li className="note">{note.title}
-                <button onClick={() => {deleteNote(note.id)}} className="noteButton" >x</button>
+                debugger
+                return <li className="note">
+                    <div className="noteInfo">
+                        <div>
+                            {note.title}
+                        </div>
+                        <div className="noteDate">
+                            {`${note.data.toLocaleDateString()} ${note.data.getHours()}:${note.data.getMinutes()}:${note.data.getSeconds()}`}
+                        </div>
+                    </div>
+                    <button onClick={() => { deleteNote(note.id) }} className="noteButton" >x</button>
                 </li>
             })}
         </div>

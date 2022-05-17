@@ -20,3 +20,13 @@
     background-color: red;
     color: white;
 }
+
+.noteDate {
+    font-size: 12px;
+    color: rgba(3, 3, 3, 0.521);
+    margin: 0px 10px;
+}
+.noteInfo {
+    display: flex;
+    align-items: baseline;
+}

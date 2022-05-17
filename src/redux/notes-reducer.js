@@ -12,7 +12,8 @@ export let notesReducer = (state, action) => {
         case 'ADD-NOTE':
                 let newNote = {
                     title: action.noteText,
-                    id: ++action.lastId
+                    id: ++action.lastId,
+                    data: new Date()
                 }
                 state.newNoteText = ''
                 state.notes.unshift(newNote)

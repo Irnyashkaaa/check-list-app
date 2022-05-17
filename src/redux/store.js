@@ -15,7 +15,6 @@ export let store = {
     },
 
     dispatch(action) {
-        debugger
         this.state.homePage = notesReducer(this.state.homePage, action)
         rerenderTree()
     }
